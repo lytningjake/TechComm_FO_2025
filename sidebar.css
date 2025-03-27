@@ -1,0 +1,254 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.sidebar{
+    width: 250px;
+    height: 100vh;
+    background-color: rgb(245, 249, 255);
+    transition: all 0.5s ease-in-out;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+    position: fixed;
+    left: 0px; /* Initially hidden */
+    top: 0;
+    z-index: 100;
+}
+
+#sidebar-email {
+    text-align: center;
+    color: #3b82f6;
+    font-weight: bold;
+    margin-top: 10px;
+    font-size: 1.0rem;  /* Adjust font size as needed */
+    opacity: 0;  /* Hide initially */
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.sidebar.active #sidebar-email {
+    opacity: 1;  /* Show when sidebar is open */
+    visibility: visible;
+}
+
+#bar{
+   position: fixed;
+   left: 0px; /*burger*/
+   visibility: hidden;
+   color: #3b82f6;
+   z-index: 100000;
+   cursor: pointer;
+} 
+#bar i{
+    padding: 10px;
+    font-size: 2em;
+}
+#closebtn{
+    font-size: 2em;
+    padding: 10px;
+    color: #3b82f6; 
+    display: flex;
+    justify-content: end;
+}   
+img{
+    margin: 30px 70px 0 70px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    transition: all .5s ease-in-out; 
+}
+.sidebar h3{
+    color: #3b82f6;
+    text-align: center;
+    display: block;
+    margin-top: 20px;
+}
+.icon{
+    position: fixed;
+    left: 3px;    /*icon*/
+    margin-top: 40px;
+    float: left;
+}
+.icon li{
+    margin: 10px 0;
+    padding: 10px;
+    color: #3b82f6;
+    list-style-type: none;
+}
+.sidebar ul{
+    position: fixed;
+    width: 200px;
+    float: right;
+    list-style-type: none;
+    margin-top: 40px;
+    margin-left: 40px;
+    transition: all .5s ease-in-out;
+}
+.sidebar li{
+    color: #3b82f6;
+    margin: 10px 0;
+    padding: 10px;
+    transition: .5s;
+}
+.sidebar  li:hover{
+    font-weight: bold;
+    cursor: pointer;
+    transition: .5s;
+}
+.sidebar  li a{
+    text-decoration: none;
+    color: #3b82f6;
+}
+.sidebar  li i{
+    font-size: 20px;
+    margin-right: 20px;
+}
+.sidebar  i{
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    /* Sidebar base styles */
+    .sidebar {
+        width: 250px;
+        transform: translateX(-100%); /* Changed from margin-left */
+        transition: all 0.3s ease;
+        z-index: 1000;
+        background-color: transparent; /* Remove background when hidden */
+        box-shadow: none; /* Remove shadow when hidden */
+    }
+    
+    /* Active (open) state */
+    .sidebar.active {
+        transform: translateX(0);
+        background-color: rgb(245, 249, 255); /* Restore background */
+        box-shadow: 5px 0 15px rgba(0,0,0,0.1); /* Restore shadow */
+    }
+    
+
+    
+    /* Icon container */
+    .icon {
+        position: relative;
+        left: 0;
+        margin-top: 40px;
+        transition: all 0.3s ease;
+        z-index: 1001;
+    }
+    
+    /* Image styles */
+    #img {
+        transition: all 0.3s ease;
+    }
+    
+    /* Hidden state - all sidebar content */
+    .sidebar:not(.active) {
+        pointer-events: none; /* Disable interactions */
+    }
+    .sidebar:not(.active) .icon,
+    .sidebar:not(.active) #list,
+    .sidebar:not(.active) #img,
+    .sidebar:not(.active) #closebtn,
+    .sidebar:not(.active) h3 {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateX(-20px);
+    }
+    
+    /* Visible state */
+    .sidebar.active #img,
+    .sidebar.active .icon,
+    .sidebar.active #list,
+    .sidebar.active #closebtn,
+    .sidebar.active h3 {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(0);
+        transition-delay: 0.2s;
+        pointer-events: auto; /* Enable interactions */
+    }
+    
+    /* Hamburger menu button (always visible) */
+    #bar {
+        position: fixed;
+        left: 1px;
+        top: 15px;
+        visibility: visible;
+        z-index: 1001;
+        pointer-events: auto;
+    }
+}
+
+/* Navigation Styles */
+nav a {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1.25rem;
+  }
+  
+  nav .nav-text {
+    display: inline-block;
+    transition: opacity 0.3s ease;
+  }
+  
+  nav i {
+    font-size: 1.1rem;
+    min-width: 3.1rem;
+    text-align: center;
+  }
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    nav .nav-text {
+      display: none;
+    }
+    
+    nav ul {
+      justify-content: center;
+      gap: 0.5rem;
+    }
+    
+    nav a {
+      padding: 0.75rem;
+      border-radius: 50%;
+      justify-content: center;
+      width: 3rem;
+      height: 3rem;
+    }
+    
+    nav a.active {
+      background-color: rgba(59, 130, 246, 0.2);
+    }
+    
+    nav i {
+      font-size: 1.25rem;
+      margin-right: 0;
+    }
+  }
+  
+  /* Desktop Hover Effect */
+  @media (min-width: 769px) {
+    nav a:hover .nav-text {
+      opacity: 0.8;
+    }
+  }
+
+/*Icon click when sidebar close*/
+  .sidebar:not(.active) .icon {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.icon {
+    z-index: 101; /* Higher than sidebar */
+}
+
+#sidebar-email {
+    text-align: center;
+    color: #3b82f6;
+    font-weight: bold;
+    margin-top: 10px;
+}
