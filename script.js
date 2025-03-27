@@ -1990,7 +1990,7 @@ const subjects = [
   units: 3,
   department: ["IS"],
   type: 'major',
-  prerequisites: [],
+  prerequisites: ["IS341"],
   price: 4428,
   instructors: []
 },
