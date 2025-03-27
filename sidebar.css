@@ -349,3 +349,47 @@ nav a {
   cursor: pointer;
 }
 
+/* Success Modal - Highest priority */
+#success-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    z-index: 1300; /* Above payment modal (1200) */
+    background: rgba(0,0,0,0.8); /* Darker overlay */
+  }
+  
+  /* Success Content */
+  #success-modal .modal-content {
+    position: relative;
+    z-index: 1301;
+    background: white;
+    margin: 3rem auto; /* More vertical spacing */
+    max-width: 500px;
+    padding: 2rem;
+    text-align: center;
+    border-radius: 8px;
+    animation: fadeIn 0.4s ease-out;
+  }
+  
+  /* Success Icon */
+  .success-icon {
+    font-size: 4rem;
+    color: #10b981; /* Success green */
+    margin: 1rem 0;
+  }
+  
+  /* Reference Number Highlight */
+  #reference-number {
+    color: #1e3a8a; /* CIIT blue */
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
+  
+  /* Animation */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
