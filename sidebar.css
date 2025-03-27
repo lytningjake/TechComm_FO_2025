@@ -349,13 +349,3 @@ nav a {
   cursor: pointer;
 }
 
-/* ================ SAFARI FIXES ================ */
-@supports (-webkit-touch-callout: none) {
-  #subject-modal,
-  #instructor-modal {
-    -webkit-overflow-scrolling: touch;
-  }
-  .modal-content {
-    -webkit-transform: translateZ(0);
-  }
-}
