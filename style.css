@@ -6,13 +6,18 @@
   --danger-color: #ef4444;
   --warning-color: #f59e0b;
   --info-color: #6366f1;
+
   --text-color: #1f2937;
   --light-text: #6b7280;
+
   --background-color: #f3f4f6;
   --card-color: #ffffff;
   --border-color: #e5e7eb;
-  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+
+  --font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
 
 * {
@@ -56,21 +61,24 @@ header {
   font-size: 1rem;
 }
 
-/* Navigation Bar - Higher in stacking order */
 nav {
-  position: -webkit-sticky; /* Safari */
+  position: -webkit-sticky;
   position: sticky;
   top: 0;
-  z-index: 999; /* Higher than units display */
+  z-index: 999;
   background-color: var(--card-color);
   padding: 0.5rem 0;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
 }
 
 nav ul {
   display: flex;
   list-style: none;
-  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+  justify-content: space-around; 
+  gap: 0.5rem; 
 }
 
 nav a {
@@ -91,17 +99,17 @@ nav a.active {
   background-color: rgba(59, 130, 246, 0.1);
 }
 
-/* Units Display - Shows below navigation */
 .total-units-display {
-  position: -webkit-sticky; /* Safari */
+  position: -webkit-sticky;
   position: sticky;
-  top: 56px; /* Height of nav bar (adjust based on your actual nav height) */
-  z-index: 998; /* Below nav */
+  top: 56px;
+  z-index: 998;
   background-color: var(--card-color);
   padding: 0.75rem 1rem;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   margin-bottom: 1rem;
 }
+
 
 #payment-modal {
   position: fixed;
@@ -110,11 +118,10 @@ nav a.active {
   width: 100%;
   height: 100%;
   display: none;
-  z-index: 1200; /* Higher than sidebar (1050) and nav (1001) */
-  background: rgba(0,0,0,0.7);
+  z-index: 1200;
+  background: rgba(0, 0, 0, 0.7);
 }
 
-/* Payment Content */
 #payment-modal .modal-content {
   position: relative;
   z-index: 1201;
@@ -124,7 +131,7 @@ nav a.active {
   max-height: 90vh;
   overflow-y: auto;
   border-radius: 8px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
 }
 
 .units-info {
@@ -184,7 +191,8 @@ h2 {
   margin-bottom: 1.5rem;
 }
 
-input[type="text"], select {
+input[type="text"],
+select {
   padding: 0.75rem 1rem;
   border: 1px solid var(--border-color);
   border-radius: 0.25rem;
@@ -196,7 +204,10 @@ select {
   background-color: white;
 }
 
-.subjects-container, .prerequisites-list, .completed-subjects, .instructors-dashboard {
+.subjects-container,
+.prerequisites-list,
+.completed-subjects,
+.instructors-dashboard {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 1.5rem;
@@ -206,10 +217,9 @@ select {
 .subject-card {
   display: flex;
   flex-direction: column;
-  height: 100%; /* Ensure consistent height */
-  min-height: 200px; /* Minimum height to prevent squishing */
+  height: 100%;
+  min-height: 200px;
 }
-
 
 .subject-card {
   background-color: var(--card-color);
@@ -219,8 +229,7 @@ select {
   transition: transform 0.3s ease;
   cursor: pointer;
   position: relative;
-  padding-bottom: 2.5rem; /* Add space at bottom for the details */
-
+  padding-bottom: 2.5rem;
 }
 
 .subject-card:hover {
@@ -241,7 +250,7 @@ select {
 }
 
 .subject-card p {
-  flex-grow: 1; /* Allow paragraph to take available space */
+  flex-grow: 1;
   margin-bottom: 1rem;
   overflow: hidden;
   display: -webkit-box;
@@ -252,13 +261,13 @@ select {
 .subject-card .subject-details {
   display: flex;
   justify-content: space-between;
-  margin-top: auto; /* Push to bottom */
+  margin-top: auto;
+  /* Push to bottom */
   padding-top: 0.5rem;
-  border-top: 1px solid rgba(0,0,0,0.05);
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-/* Adjust badge positioning */
-.completed-badge, 
+.completed-badge,
 .currently-taking-badge,
 .in-cart-badge {
   position: absolute;
@@ -299,7 +308,8 @@ select {
   cursor: default;
 }
 
-.subject-card.completed:hover, .subject-card.currently-taking:hover {
+.subject-card.completed:hover,
+.subject-card.currently-taking:hover {
   transform: none;
 }
 
@@ -308,46 +318,32 @@ select {
   top: 1rem;
   right: 1rem;
   color: white;
-  padding: 0.25rem 0.5rem; /* Reduced padding */
+  padding: 0.25rem 0.5rem;
+  /* Reduced padding */
   border-radius: 0.25rem;
-  font-size: 0.75rem; /* Smaller font size */
+  font-size: 0.75rem;
+  /* Smaller font size */
   font-weight: 500;
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-width: 30px; /* Reduced minimum width */
+  min-width: 30px;
+  /* Reduced minimum width */
 }
 
 .completed-badge .completed-text {
-  margin-bottom: 0.1rem; /* Reduced margin */
-  font-size: 0.6rem; /* Smaller text for "Completed" */
-  display: none; /* Hide the "Completed" text to make it smaller */
+  margin-bottom: 0.1rem;
+  /* Reduced margin */
+  font-size: 0.6rem;
+  /* Smaller text for "Completed" */
+  display: none;
+  /* Hide the "Completed" text to make it smaller */
 }
 
 .completed-badge .grade {
-  font-size: 0.8rem; /* Smaller grade font */
+  font-size: 0.8rem;
+  /* Smaller grade font */
   font-weight: 700;
-}
-
-/* Grade-specific styles */
-.completed-badge.grade-a {
-  background-color: #10b981; /* Green */
-}
-
-.completed-badge.grade-b {
-  background-color: #3b82f6; /* Blue */
-}
-
-.completed-badge.grade-c {
-  background-color: #f59e0b; /* Yellow */
-}
-
-.completed-badge.grade-d {
-  background-color: #f97316; /* Orange */
-}
-
-.completed-badge.grade-f {
-  background-color: #ef4444; /* Red */
 }
 
 .currently-taking-badge {
@@ -491,25 +487,20 @@ select {
   color: white;
 }
 
-.node-status.grade.grade-a {
-  background-color: #10b981;
-}
-
-.node-status.grade.grade-b {
-  background-color: #3b82f6;
-}
-
-.node-status.grade.grade-c {
-  background-color: #f59e0b;
-}
-
-.node-status.grade.grade-d {
-  background-color: #f97316;
-}
-
-.node-status.grade.grade-f {
-  background-color: #ef4444;
-}
+.grade-a-plus { background-color: #2E7D32; } 
+.grade-a      { background-color: #388E3C; } 
+.grade-a-minus { background-color: #43A047; } 
+.grade-b-plus { background-color: #66BB6A; }
+.grade-b      { background-color: #8BC34A; }
+.grade-b-minus { background-color: #9CCC65; }
+.grade-c-plus { background-color: #FFEB3B; } 
+.grade-c      { background-color: #FFC107; } 
+.grade-c-minus { background-color: #FFA000; } 
+.grade-d-plus { background-color: #FF7043; }
+.grade-d      { background-color: #FF5722; }
+.grade-d-minus { background-color: #E53935; }
+.grade-f-plus { background-color: #D32F2F; } 
+.grade-f      { background-color: #B71C1C; } 
 
 .node-details {
   display: flex;
@@ -519,7 +510,7 @@ select {
 }
 
 .node-units {
-  background-color: rgba(59, 130, 246,  0.1);
+  background-color: rgba(59, 130, 246, 0.1);
   color: var(--primary-color);
   padding: 0.25rem 0.5rem;
   border-radius: 0.25rem;
@@ -533,27 +524,26 @@ select {
   margin-top: 1rem;
 }
 
-.level-0 > .tree-node-content {
+.level-0>.tree-node-content {
   background-color: rgba(59, 130, 246, 0.1);
   border: 1px solid rgba(59, 130, 246, 0.2);
 }
 
-.level-0.completed > .tree-node-content {
+.level-0.completed>.tree-node-content {
   background-color: rgba(16, 185, 129, 0.1);
   border: 1px solid rgba(16, 185, 129, 0.2);
 }
 
-.level-0.currently-taking > .tree-node-content {
+.level-0.currently-taking>.tree-node-content {
   background-color: rgba(99, 102, 241, 0.1);
   border: 1px solid rgba(99, 102, 241, 0.2);
 }
 
-.level-0.available > .tree-node-content {
+.level-0.available>.tree-node-content {
   background-color: rgba(245, 158, 11, 0.1);
   border: 1px solid rgba(245, 158, 11, 0.2);
 }
 
-/* Modal Styles */
 .modal {
   display: none;
   position: fixed;
@@ -566,7 +556,6 @@ select {
   overflow: auto;
 }
 
-/* Instructor Modal Styling */
 .modal-content {
   background-color: var(--card-color);
   margin: 5% auto;
@@ -585,13 +574,16 @@ select {
     opacity: 0;
     transform: translateY(-50px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-.close, .payment-close, .instructor-close {
+.close,
+.payment-close,
+.instructor-close {
   position: absolute;
   top: 1rem;
   right: 1.5rem;
@@ -601,7 +593,9 @@ select {
   cursor: pointer;
 }
 
-.close:hover, .payment-close:hover, .instructor-close:hover {
+.close:hover,
+.payment-close:hover,
+.instructor-close:hover {
   color: var(--text-color);
 }
 
@@ -616,11 +610,13 @@ select {
   color: var(--text-color);
 }
 
-#modal-prerequisites, #modal-instructors {
+#modal-prerequisites,
+#modal-instructors {
   margin-bottom: 1.5rem;
 }
 
-#modal-prerequisites h3, #modal-instructors h3 {
+#modal-prerequisites h3,
+#modal-instructors h3 {
   font-size: 1.25rem;
   margin-bottom: 0.75rem;
   color: var(--text-color);
@@ -797,14 +793,13 @@ select {
   cursor: not-allowed;
 }
 
-/* Cart Styles */
 .cart-section {
   background-color: var(--card-color);
   border-radius: 0.5rem;
   padding: 1.5rem;
   box-shadow: var(--shadow);
-  margin: 2rem auto; /* Center the cart */
-  width: 1155px; /* Match enrollment summary width */
+  margin: 2rem auto;
+  width: 1155px;
 }
 
 .cart-items {
@@ -897,7 +892,6 @@ select {
   color: var(--light-text);
 }
 
-/* Payment Modal Styles */
 .payment-summary {
   margin-bottom: 2rem;
 }
@@ -1006,7 +1000,6 @@ select {
   flex: 1;
 }
 
-/* Success Modal */
 .success-content {
   text-align: center;
   padding: 3rem 2rem;
@@ -1032,21 +1025,18 @@ select {
   color: var(--primary-color);
 }
 
-  /* Success Content */
-  #success-modal .modal-content {
-    position: relative;
-    z-index: 1301;
-    background: white;
-    margin: 3rem auto; /* More vertical spacing */
-    max-width: 500px;
-    padding: 2rem;
-    text-align: center;
-    border-radius: 8px;
-    animation: fadeIn 0.4s ease-out;
-  }
-  
+#success-modal .modal-content {
+  position: relative;
+  z-index: 1301;
+  background: white;
+  margin: 3rem auto;
+  max-width: 500px;
+  padding: 2rem;
+  text-align: center;
+  border-radius: 8px;
+  animation: fadeIn 0.4s ease-out;
+}
 
-/* Change Instructor Button */
 .change-instructor {
   background-color: var(--secondary-color);
   color: white;
@@ -1063,7 +1053,6 @@ select {
   background-color: #2563eb;
 }
 
-/* Dashboard Styles */
 .dashboard-container {
   display: grid;
   grid-template-columns: 1fr;
@@ -1096,7 +1085,7 @@ select {
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 50%;
+  border-radius: 20%;
 }
 
 .stat-info h3 {
@@ -1171,7 +1160,6 @@ select {
   font-weight: 600;
 }
 
-/* Instructor Dashboard Styles */
 .instructor-dashboard-card {
   background-color: var(--card-color);
   border-radius: 0.5rem;
@@ -1182,8 +1170,8 @@ select {
   position: relative;
   display: flex;
   flex-direction: column;
-  height: 100%; /* Ensure consistent height */
-  min-height: 250px; /* Set a minimum height to prevent squishing */
+  height: 100%;
+  min-height: 250px;
 }
 
 .instructor-dashboard-card:hover {
@@ -1207,22 +1195,19 @@ select {
   margin-bottom: 0.75rem;
 }
 
-/* Base styles */
 .instructor-rating {
   font-size: 1.0rem;
   display: flex;
   align-items: center;
   gap: 0.25rem;
   margin: 0.25rem 0;
-  /* Keep left-aligned by default */
   justify-content: flex-start;
 }
 
-/* Push courses to bottom */
 .instructor-courses {
-  margin-top: auto; /* This pushes it to the bottom */
+  margin-top: auto;
   padding-top: 1rem;
-  border-top: 1px solid rgba(0,0,0,0.1); /* Optional divider */
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .instructor-courses h4 {
@@ -1246,7 +1231,6 @@ select {
   font-weight: 500;
 }
 
-/* Instructor Modal Styles */
 .instructor-profile {
   display: flex;
   flex-direction: column;
@@ -1278,22 +1262,6 @@ select {
   color: var(--primary-color);
   margin-bottom: 0.25rem;
 }
-
-
-
-
-
-/*.avatar-placeholder {
-  width: 100px;
-  height: 100px;
-  background-color: rgba(59, 130, 246, 0.1);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2.5rem;
-  color: var(--primary-color);
-}*/
 
 .instructor-info {
   flex: 1;
@@ -1349,7 +1317,8 @@ select {
   color: var(--primary-color);
 }
 
-.instructor-courses h3, .instructor-schedule h3 {
+.instructor-courses h3,
+.instructor-schedule h3 {
   font-size: 1.25rem;
   margin-bottom: 0.75rem;
   color: var(--text-color);
@@ -1402,33 +1371,31 @@ select {
   color: var(--primary-color);
 }
 
-/* For mobile responsiveness */
 @media (max-width: 768px) {
   header {
     flex-direction: column;
-    align-items: center; /* Changed from flex-start to center */
-    text-align: center; /* Ensures text is centered too */
-    justify-content: center; /* Centers vertically if needed */
-  
-  
-  .logo {
-    margin-bottom: 10px; /* Adds spacing between logo and other header elements */
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+
+    .logo {
+      margin-bottom: 10px;
+    }
+
+    #user-email {
+      width: 100%;
+      text-align: center;
+    }
   }
-  
-  #user-email {
-    width: 100%; /* Ensures email takes full width */
-    text-align: center; /* Centers the email text */
-  }
-}
 
   .cart-section {
-    max-width: 100%; /* Full width on mobile */
-    padding: 1rem; /* Reduced padding */
-    margin-top: 1rem; /* Reduced top margin */
-    border-radius: 0; /* Remove border radius for full-width look */
-    box-shadow: none; /* Remove shadow for cleaner mobile appearance */
-    border-top: 1px solid var(--border-color); /* Add top border instead */
-    border-bottom: 1px solid var(--border-color); /* Add bottom border */
+    max-width: 100%;
+    padding: 1rem;
+    margin-top: 1rem;
+    border-radius: 0;
+    box-shadow: none;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
   }
 
   nav {
@@ -1517,14 +1484,14 @@ select {
     padding: 0.75rem 1rem;
     border-bottom: 1px solid var(--border-color);
   }
-  
+
   .enrollment-table th {
     background-color: rgba(59, 130, 246, 0.05);
     text-align: left;
     font-weight: 600;
     color: var(--primary-color);
   }
-  
+
   .enrollment-table td {
     vertical-align: top;
   }
@@ -1570,12 +1537,12 @@ select {
     padding: 0.15rem 0.3rem;
     font-size: 1.6rem;
     min-width: 25px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
 
   .completed-badge .grade {
     font-size: 1.0rem;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
 
   .currently-taking-badge {
@@ -1686,7 +1653,7 @@ select {
     display: flex;
     flex-direction: column;
     height: 100%;
-    position: relative; /* For absolute positioning if needed */
+    position: relative;
   }
 
   .instructor-dashboard-card h3 {
@@ -1696,20 +1663,20 @@ select {
   .instructor-specialization {
     font-size: 0.9rem;
     color: var(--light-text);
-}
+  }
 
-.instructor-rating {
-  font-size: 1.0rem;
-  color: var(--accent-color); /*mobile couses size*/
-  font-weight: 600;
-}
+  .instructor-rating {
+    font-size: 1.0rem;
+    color: var(--accent-color);
+    font-weight: 600;
+  }
 
   .instructor-courses h4 {
     font-size: 1.0rem;
   }
 
   .course-tag {
-    font-size: 0.9rem; /*mobile courses size*/
+    font-size: 0.9rem;
   }
 
   .instructor-profile {
@@ -1731,11 +1698,10 @@ select {
   }
 
   .instructor-info {
-    font-size: 14px; /* Base size */
+    font-size: 14px;
+    /* Base size */
   }
-  
 
-  
   #modal-instructor-rating {
     font-size: 0.875rem;
   }
@@ -1753,12 +1719,12 @@ select {
     font-size: 1rem;
   }
 
-  .instructor-courses{
+  .instructor-courses {
     background-color: var(--background-color);
     padding: 1.5rem;
     border-radius: 0.5rem;
     box-shadow: var(--shadow);
-}
+  }
 
   #instructor-courses-list li {
     font-size: 0.75rem;
@@ -1781,7 +1747,6 @@ select {
   }
 }
 
-/* Notification Banner Styles */
 .notification-banner {
   padding: 1rem;
   border-radius: 0.5rem;
@@ -1790,22 +1755,25 @@ select {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  background-color: rgba(16, 185, 129, 0.1); /* Light green background */
-  color: #10b981; /* Green text */
+  background-color: rgba(16, 185, 129, 0.1);
+  /* Light green background */
+  color: #10b981;
+  /* Green text */
   border: 1px solid rgba(16, 185, 129, 0.2);
 }
 
 .notification-banner.deans-lister::before {
-  content: "🎉"; /* Emoji for celebration */
+  content: "🎉";
+  /* Emoji for celebration */
   font-size: 1.25rem;
 }
 
-/* Optional: Add animation for attention */
-@keyframes fadeIn {
+@keyframes modalFadeIn {
   from {
     opacity: 0;
-    transform: translateY(-10px);
+    transform: translateY(-50px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -1855,15 +1823,14 @@ select {
 }
 
 .academic-calendar-iframe {
-  width: 100%; /* Full width of the container */
-  height: 700px; /* Fixed height */
-  border: none; /* Remove iframe border */
+  width: 100%;
+  height: 700px;
+  border: none;
 }
 
-/* Optional: Make the iframe responsive */
 @media (max-width: 768px) {
   .academic-calendar-iframe {
-      height: 500px; /* Adjust height for smaller screens */
+    height: 500px;
   }
 }
 
@@ -1877,7 +1844,6 @@ select {
   font-weight: 500;
 }
 
-/* Additional Fees Styles */
 #additional-fees {
   margin-bottom: 1.5rem;
 }
@@ -1913,7 +1879,7 @@ select {
 }
 
 .subject-card .department {
-display: none;
+  display: none;
 }
 
 .department-badges {
@@ -1928,7 +1894,7 @@ display: none;
   border-radius: 0.25rem;
   font-size: 0.875rem;
   font-weight: 500;
-  color: white; /* White text for better contrast */
+  color: white;
   display: inline-block;
 }
 
@@ -1950,8 +1916,4 @@ display: none;
   color: var(--text-color);
   margin-bottom: 0.25rem;
 }
-
-
-
-
 

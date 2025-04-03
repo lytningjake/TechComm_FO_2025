@@ -21,7 +21,7 @@ document.getElementById('closebtn').addEventListener('click', function () {
 })
 
 // Close sidebar by default when page loads
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     document.getElementById("sidebar").style.marginLeft = '-200px';
     document.getElementById("bar").style.visibility = 'visible';
     document.getElementById("closebtn").style.visibility = 'hidden';
@@ -32,21 +32,21 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Open sidebar
-document.getElementById('bar').addEventListener('click', function() {
+document.getElementById('bar').addEventListener('click', function () {
     const sidebar = document.getElementById("sidebar");
     sidebar.classList.add('active');
     this.style.visibility = 'hidden';
 });
 
 // Close sidebar
-document.getElementById('closebtn').addEventListener('click', function() {
+document.getElementById('closebtn').addEventListener('click', function () {
     const sidebar = document.getElementById("sidebar");
     sidebar.classList.remove('active');
     document.getElementById("bar").style.visibility = 'visible';
 });
 
 // Initialize
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const sidebar = document.getElementById("sidebar");
     sidebar.classList.remove('active');
     document.getElementById("bar").style.visibility = 'visible';
@@ -64,10 +64,9 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Ensure icons remain clickable even when sidebar is hidden
-    addClickListener(".home-icon", "home.html");
-    addClickListener(".settings-icon", "settings.html");
-    addClickListener(".support-icon", "support.html");
+   // addClickListener(".home-icon", "");
+    //addClickListener(".settings-icon", "");
+    addClickListener(".support-icon", "feedback.html");
     addClickListener(".logout-icon", "login.html");
 
     // Sidebar toggle to ensure visibility of icons
@@ -98,3 +97,4 @@ document.addEventListener("DOMContentLoaded", function () {
     // Set the sidebar title to the extracted name
     sidebarTitle.textContent = username;
 });
+

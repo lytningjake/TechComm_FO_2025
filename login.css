@@ -1,4 +1,3 @@
-/* General Styles */
 * {
   margin: 0;
   padding: 0;
@@ -15,7 +14,7 @@ body {
 .container {
   display: flex;
   height: 100vh;
-  flex-direction: column; /* Default to column layout for mobile */
+  flex-direction: column;
 }
 
 .split {
@@ -28,36 +27,89 @@ body {
 }
 
 .split.left {
-  flex: 1; /* Adjusted for mobile */
-  background: url('https://via.placeholder.com/800') no-repeat center center/cover;
+  position: relative;
+}
+
+#logoimg {
+  position: absolute;
+  top: 10;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.logo-heading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+.logo-heading .logo-text {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 2.80rem;
+  color: #2c3e50;
+  margin-left: 5px;
+  vertical-align: middle;
+}
+
+#mainimg {
+  width: auto;
+  height: 1.5em;
+  object-fit: contain;
+}
+
+.split.left .content {
+  position: relative;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 2rem;
+  border-radius: 10px;
   color: #fff;
 }
 
 .split.right {
-  flex: 1; /* Adjusted for mobile */
+  flex: 1;
   background: #fff;
-  padding: 1rem; /* Reduced padding for mobile */
+  padding: 1rem;
+}
+
+.split.right .content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+#login-form {
+  width: 100%;
 }
 
 .content {
   text-align: center;
   max-width: 400px;
   width: 100%;
-  padding: 1rem; /* Added padding for better spacing on mobile */
+  padding: 1rem;
 }
 
-h1, h2 {
+h1,
+h2 {
   margin-bottom: 1rem;
-  font-size: 1.5rem; /* Adjusted font size for mobile */
+  font-size: 1.5rem;
 }
 
 p {
-  margin-bottom: 1rem; /* Reduced margin for mobile */
-  font-size: 0.9rem; /* Adjusted font size for mobile */
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
 }
 
 .form-group {
-  margin-bottom: 1rem; /* Reduced margin for mobile */
+  margin-bottom: 1rem;
   text-align: left;
 }
 
@@ -65,20 +117,20 @@ label {
   display: block;
   margin-bottom: 0.5rem;
   font-weight: bold;
-  font-size: 0.9rem; /* Adjusted font size for mobile */
+  font-size: 0.9rem;
 }
 
 input {
   width: 100%;
-  padding: 0.5rem; /* Reduced padding for mobile */
+  padding: 0.5rem;
   border: 1px solid #ccc;
   border-radius: 5px;
-  font-size: 0.9rem; /* Adjusted font size for mobile */
+  font-size: 0.9rem;
 }
 
 .btn {
   width: 100%;
-  padding: 0.5rem; /* Reduced padding for mobile */
+  padding: 0.5rem;
   background-color: #007bff;
   color: #fff;
   border: none;
@@ -94,7 +146,7 @@ input {
 
 .signup-link {
   margin-top: 1rem;
-  font-size: 0.9rem; /* Adjusted font size for mobile */
+  font-size: 0.9rem;
 }
 
 .signup-link a {
@@ -108,7 +160,7 @@ input {
 
 .forgot-password {
   margin-top: 1rem;
-  font-size: 0.9rem; /* Adjusted font size for mobile */
+  font-size: 0.9rem;
 }
 
 .forgot-password a {
@@ -120,39 +172,50 @@ input {
   text-decoration: underline;
 }
 
-/* Responsive Styles */
 @media (min-width: 768px) {
   .container {
-    flex-direction: row; /* Switch back to row layout for larger screens */
+    flex-direction: row;
   }
 
   .split.left {
-    flex: 3; /* Adjusted for larger screens */
+    flex: 3;
   }
 
   .split.right {
-    flex: 1; /* Adjusted for larger screens */
-    padding: 2rem; /* Restore padding for larger screens */
+    flex: 1;
+    padding: 2rem;
   }
 
-  h1, h2 {
-    font-size: 2rem; /* Restore font size for larger screens */
+  h1,
+  h2 {
+    font-size: 2rem;
   }
 
   p {
-    font-size: 1rem; /* Restore font size for larger screens */
+    font-size: 1rem;
   }
 
   input {
-    padding: 0.75rem; /* Restore padding for larger screens */
-    font-size: 1rem; /* Restore font size for larger screens */
+    padding: 0.75rem;
+    font-size: 1rem;
   }
 
   .btn {
-    padding: 0.75rem; /* Restore padding for larger screens */
+    padding: 0.75rem;
   }
 
-  .signup-link, .forgot-password {
-    font-size: 1rem; /* Restore font size for larger screens */
+  .signup-link,
+  .forgot-password {
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .logo-heading {
+    font-size: 2rem;
+  }
+
+  #mainimg {
+    height: 1.2em;
   }
 }
