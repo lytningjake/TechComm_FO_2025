@@ -220,7 +220,6 @@ input {
   }
 }
 
-/* Add this to your existing CSS */
 .split.left .content {
   position: relative;
   z-index: 2;
